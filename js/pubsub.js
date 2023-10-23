@@ -2,7 +2,6 @@ class PubSub {
     constructor() {
         this.events = {};
     }
-
     // Publish event with data to subscribers
     publish(event, data) {
         if (!this.events[event]) return;
@@ -21,3 +20,5 @@ class PubSub {
         this.events[event] = this.events[event].filter(fn => fn !== callback);
     }
 }
+const pubsub = new PubSub();
+export { pubsub };
