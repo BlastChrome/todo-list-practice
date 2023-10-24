@@ -1,4 +1,4 @@
-import pubsub from '../../js/pubsub.js'; // Import your PubSub class or module
+import { pubsub } from '../../js/pubsub.js'; // Import your PubSub class or module
 
 export default class TodoList {
     constructor() {

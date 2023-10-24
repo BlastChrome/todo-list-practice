@@ -1,10 +1,9 @@
-import { pubsub } from "../js/pubsub.js";
 import Todo from "../src/modules/todo.js"
+import TodoList from "../src/modules/todo-list.js"
+import UI from "../src/modules/ui.js"
 
-const publish = pubsub.publish.bind(pubsub);
-const subscribe = pubsub.subscribe.bind(pubsub);
 
 
 const App = (() => {
-
+    const ui = new UI();
 })();
