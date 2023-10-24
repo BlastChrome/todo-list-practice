@@ -1,16 +1,16 @@
 export default class Todo {
-    constructor() {
-        this.text = "";
+    constructor(text) {
+        this.text = text;
         this.isComplete = false;
         this.timeStamp = new Date();
     }
 
-    changeText = (newText) => {
+    updateTodo = (newText) => {
         this.text = newText;
     }
 
     toggleCompletion = () => {
-        this.timeStamp = !this.timeStamp;
+        this.isComplete = !this.isComplete;
     }
 
 }
