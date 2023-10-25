@@ -11,7 +11,7 @@ export default class UI {
     }
 
     subscribe = () => {
-        pubsub.subscribe("todoAdded", this.handleTodoAdded);
+        // pubsub.subscribe("todoAdded", this.handleTodoAdded);
     }
 
     handleAddClick = () => {

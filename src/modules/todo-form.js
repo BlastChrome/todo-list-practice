@@ -12,6 +12,6 @@ export default class TodoForm {
     handleTodoInput = (text) => {
         if (text.length <= 0) return;
         this.todoInput = text;
-        pubsub.publish("addTodo", this.todoInput);
+        pubsub.publish("inputValidated", this.todoInput);
     }
 }
