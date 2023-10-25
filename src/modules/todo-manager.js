@@ -8,10 +8,10 @@ export default class TodoManager {
         this.subscribe();
     }
     subscribe = () => {
-        pubsub.subscribe("inputValidated", this.addTodo)
+        pubsub.subscribe("inputValidated", this.addTodoToList)
     }
 
-    addTodo = (newTodoText) => {
+    addTodoToList = (newTodoText) => {
         const newTodo = new Todo(newTodoText);
         this.list.addTodo(newTodo);
         console.log(this.list);

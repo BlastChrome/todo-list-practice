@@ -8,7 +8,6 @@ export default class TodoList {
 
     // subscriptions 
     subscribe = () => {
-        // pubsub.subscribe("addTodo", this.addTodo);
         pubsub.subscribe('removeTodo', this.removeTodo);
         pubsub.subscribe('updateTodo', this.updateTodo);
     }
