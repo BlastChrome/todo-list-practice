@@ -33,9 +33,11 @@ export default class UI {
 
     createTodoElement = (newTodo) => {
         const todoItem = document.createElement("li");
-        todoItem.innerHTML = `<input type="checkbox" class="todo-item__checkbox" />
+        todoItem.classList.add('todo-item');
+        todoItem.innerHTML = `
+            <input type="checkbox" class="todo-item__checkbox" />
             <span class="todo-item__text">${newTodo.text}</span>
-            <button class="todo-item__button">Delete</button>`;
+            <button class="todo-item__button todo-item__button--delete">Delete</button>`;
         this.domList.appendChild(todoItem);
     }
 

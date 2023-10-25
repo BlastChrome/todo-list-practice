@@ -24,6 +24,10 @@ body {
     border-radius: 5px;
 }
 
+/* todo-item */
+
+
+li.todo-item {}
 
 
 #addTodo {
@@ -36,6 +40,8 @@ body {
     color: #fff;
     cursor: pointer;
 }
+
+
 
 .form-wrapper {
     display: flex;
@@ -56,11 +62,38 @@ body {
     padding: 0;
 }
 
-#todoList li {
-    padding: 10px;
-    border-bottom: 1px solid #e1e1e1;
+li.todo-item {
+    padding: 20px;
+    border-bottom: 1px solid #f1f1f1;
+    position: relative;
+
 }
 
-#todoList li:last-child {
+li.todo-item.todo-item--complete {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+li.todo-item:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+li.todo-item:last-child {
     border-bottom: none;
+}
+
+li.todo-item .todo-item__button--delete {
+    width: 20%;
+    min-width: 80px;
+    right: 2%;
+    top: 20%;
+    display: block;
+    position: absolute;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9534f;
+    color: #fff;
+    cursor: pointer;
 }
