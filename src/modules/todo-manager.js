@@ -16,6 +16,9 @@ export default class TodoManager {
         const newTodo = new Todo(newTodoText);
         this.list.addTodo(newTodo);
         pubsub.publish("todoAdded", newTodo);
-        console.log(this.list);
+    }
+
+    deleteTodoFromList = () => {
+
     }
 }
