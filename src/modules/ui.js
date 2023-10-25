@@ -4,6 +4,7 @@ export default class UI {
     constructor() {
         this.addTodo = document.getElementById("addTodo");
         this.todoInput = document.getElementById("todoInput");
+        this.domList = document.getElementById("todoList");
         this.subscribe();
 
         this.addTodo.addEventListener('click', this.handleAddClick);
@@ -11,7 +12,7 @@ export default class UI {
     }
 
     subscribe = () => {
-        // pubsub.subscribe("todoAdded", this.handleTodoAdded);
+        pubsub.subscribe("todoAdded", this.createTodoElement);
     }
 
     handleAddClick = () => {
@@ -28,6 +29,14 @@ export default class UI {
         if (e.key == "Enter") {
             this.handleAddClick();
         }
+    }
+
+    createTodoElement = (newTodo) => {
+        const todoItem = document.createElement("li");
+        todoItem.innerHTML = `<input type="checkbox" class="todo-item__checkbox" />
+            <span class="todo-item__text">${newTodo.text}</span>
+            <button class="todo-item__button">Delete</button>`;
+        this.domList.appendChild(todoItem);
     }
 
 }

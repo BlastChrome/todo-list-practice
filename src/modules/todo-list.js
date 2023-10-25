@@ -14,7 +14,6 @@ export default class TodoList {
 
     addTodo = (newTodo) => {
         this.list.push(newTodo);
-        pubsub.publish("todoAdded", newTodo);
     }
 
     removeTodo = (todoId) => {

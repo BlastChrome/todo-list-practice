@@ -7,6 +7,7 @@ export default class TodoManager {
         this.list = new TodoList();
         this.subscribe();
     }
+
     subscribe = () => {
         pubsub.subscribe("inputValidated", this.addTodoToList)
     }
@@ -14,6 +15,7 @@ export default class TodoManager {
     addTodoToList = (newTodoText) => {
         const newTodo = new Todo(newTodoText);
         this.list.addTodo(newTodo);
+        pubsub.publish("todoAdded", newTodo);
         console.log(this.list);
     }
 }
