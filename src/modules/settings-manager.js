@@ -17,6 +17,8 @@ export default class SettingsManager {
     toggleCurrentTheme = () => {
         this.themeList.reverse();
         this.currentTheme = this.getCurrentTheme()
+        pubsub.publish(this.currentTheme, "themeChanged");
+        pubsub.publish("themeChanged", this.currentTheme);
     }
 
     getCurrentTheme = () => {

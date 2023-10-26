@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="src/css/style.css">
 </head>
 
-<body>
+<body class="">
     <div id="app">
-        <h1>Todo List</h1>
+        <div class="header-wrapper">
+            <h1 class="header-wrapper__title">Todo List</h1>
+            <button id="themeBtn" class="header-wrapper__button header-wrapper__button--dark">Dark Mode</button>
+        </div>
         <div class="form-wrapper">
             <input type="text" id="todoInput" class="form-wrapper__input" placeholder="Add a new todo..." />
             <button id="addTodo" class="form-wrapper__button">Add</button>
