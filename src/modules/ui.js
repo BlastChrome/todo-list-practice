@@ -32,18 +32,6 @@ export default class UI {
         }
     }
 
-    createTodoElement = (newTodo) => {
-        const todoElement = document.createElement("li");
-        todoElement.classList.add('todo-item');
-        todoElement.dataset.id = newTodo.id;  // Store the id as a data attribute
-
-        todoElement.innerHTML = `
-        <input type="checkbox" class="todo-item__checkbox" />
-        <span class="todo-item__text">${newTodo.text}</span>
-        <button class="todo-item__button todo-item__button--delete">Delete</button>`;
-        return todoElement;
-    }
-
     handleTodoClick = (e) => {
         if (e.target.classList.contains("todo-item__button--delete")) {
             const todoId = e.target.closest('.todo-item').dataset.id;  // Retrieve the id from the data attribute
@@ -58,5 +46,17 @@ export default class UI {
             this.domList.appendChild(this.createTodoElement(todo)); 21
         });
         console.log(todoList);
+    }
+
+    createTodoElement = (newTodo) => {
+        const todoElement = document.createElement("li");
+        todoElement.classList.add('todo-item');
+        todoElement.dataset.id = newTodo.id;  // Store the id as a data attribute
+
+        todoElement.innerHTML = `
+        <input type="checkbox" class="todo-item__checkbox" />
+        <span class="todo-item__text">${newTodo.text}</span>
+        <button class="todo-item__button todo-item__button--delete">Delete</button>`;
+        return todoElement;
     }
 }
