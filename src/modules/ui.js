@@ -13,7 +13,7 @@ export default class UI {
     }
 
     subscribe = () => {
-        pubsub.subscribe("todoAdded", this.createTodoElement);
+        pubsub.subscribe("listChanged", this.renderList);
     }
 
     handleAddClick = () => {
@@ -33,15 +33,15 @@ export default class UI {
     }
 
     createTodoElement = (newTodo) => {
-        const todoItem = document.createElement("li");
-        todoItem.classList.add('todo-item');
-        todoItem.dataset.id = newTodo.id;  // Store the id as a data attribute
+        const todoElement = document.createElement("li");
+        todoElement.classList.add('todo-item');
+        todoElement.dataset.id = newTodo.id;  // Store the id as a data attribute
 
-        todoItem.innerHTML = `
+        todoElement.innerHTML = `
         <input type="checkbox" class="todo-item__checkbox" />
         <span class="todo-item__text">${newTodo.text}</span>
         <button class="todo-item__button todo-item__button--delete">Delete</button>`;
-        this.domList.appendChild(todoItem);
+        return todoElement;
     }
 
     handleTodoClick = (e) => {
@@ -49,5 +49,14 @@ export default class UI {
             const todoId = e.target.closest('.todo-item').dataset.id;  // Retrieve the id from the data attribute
             pubsub.publish("deleteTodo", todoId);
         }
+    }
+
+    renderList = (todoList) => {
+        // clear the dom list initially 
+        while (this.domList.firstChild) { this.domList.removeChild(this.domList.lastChild) }
+        todoList.forEach(todo => {
+            this.domList.appendChild(this.createTodoElement(todo)); 21
+        });
+        console.log(todoList);
     }
 }

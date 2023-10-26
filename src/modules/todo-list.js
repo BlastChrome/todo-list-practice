@@ -14,6 +14,7 @@ export default class TodoList {
 
     addTodo = (newTodo) => {
         this.list.push(newTodo);
+        pubsub.publish('listChanged', this.list);
     }
 
     removeTodo = (todoId) => {
@@ -21,6 +22,7 @@ export default class TodoList {
         if (index > -1) {
             const removedTodo = this.list.splice(index, 1);
             pubsub.publish('todoRemoved', removedTodo[0]);
+            pubsub.publish('listChanged', this.list);
         }
     }
 
@@ -29,6 +31,7 @@ export default class TodoList {
         if (todoToUpdate) {
             todoToUpdate.text = newText;
             pubsub.publish("todoUpdated", todoToUpdate);
+            pubsub.publish('listChanged', this.list);
         }
     }
 }
