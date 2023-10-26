@@ -66,6 +66,8 @@ li.todo-item {
     padding: 20px;
     border-bottom: 1px solid #f1f1f1;
     position: relative;
+    display: flex;
+    justify-content: space-between;
 
 }
 
@@ -82,13 +84,56 @@ li.todo-item:last-child {
     border-bottom: none;
 }
 
+li.todo-item .check-text-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+li.todo-item .delete-edit-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+li.todo-item .todo-item__button--checkbox {
+    width: 5%;
+    min-width: 40px;
+    left: 2%;
+    top: 20%;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+li.todo-item .todo-item__button--edit {
+    width: 5%;
+    min-width: 40px;
+    right: 12%;
+    top: 20%;
+    display: block;
+    /* position: absolute; */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5bc0de;
+    color: #fff;
+    ;
+    cursor: pointer;
+    margin: 0 0 0 4px;
+}
+
 li.todo-item .todo-item__button--delete {
-    width: 20%;
-    min-width: 80px;
+    width: 5%;
+    min-width: 40px;
     right: 2%;
     top: 20%;
     display: block;
-    position: absolute;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -96,4 +141,5 @@ li.todo-item .todo-item__button--delete {
     background-color: #d9534f;
     color: #fff;
     cursor: pointer;
+    margin: 0 4px 0 0;
 }
