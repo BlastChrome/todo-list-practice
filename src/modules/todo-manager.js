@@ -9,7 +9,8 @@ export default class TodoManager {
     }
 
     subscribe = () => {
-        pubsub.subscribe("inputValidated", this.addTodoToList)
+        pubsub.subscribe("inputValidated", this.addTodoToList);
+        pubsub.subscribe("deleteTodo", this.deleteTodoFromList);
     }
 
     addTodoToList = (newTodoText) => {
@@ -18,7 +19,7 @@ export default class TodoManager {
         pubsub.publish("todoAdded", newTodo);
     }
 
-    deleteTodoFromList = () => {
-
+    deleteTodoFromList = (todoID) => {
+        this.list.removeTodo(todoID);
     }
 }
