@@ -27,11 +27,23 @@ export default class TodoList {
     }
 
     updateTodo = (todoId, newText) => {
-        const todoToUpdate = this.list.find(todo => todo.id === todoId);
+        const todoToUpdate = this.getTodoById(todoId);
         if (todoToUpdate) {
             todoToUpdate.text = newText;
             pubsub.publish("todoUpdated", todoToUpdate);
             pubsub.publish('listChanged', this.list);
         }
+    }
+
+    toggleTodoComplete = (todoId) => {
+        const todoToUpdate = this.getTodoById(todoId);
+        if (todoToUpdate) {
+            todoToUpdate.toggleCompletion();
+            pubsub.publish("todoUpdated", todoToUpdate);
+        }
+    }
+
+    getTodoById = (todoId) => {
+        return this.list.find(todo => todo.id === todoId);
     }
 }

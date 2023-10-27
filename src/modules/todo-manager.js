@@ -22,4 +22,8 @@ export default class TodoManager {
     deleteTodoFromList = (todoID) => {
         this.list.removeTodo(todoID);
     }
+
+    upDateTodoCompletion = (todoID) => {
+        this.list.toggleTodoComplete(todoID);
+    }
 }
