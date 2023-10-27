@@ -40,6 +40,7 @@ export default class TodoList {
         if (todoToUpdate) {
             todoToUpdate.toggleCompletion();
             pubsub.publish("todoUpdated", todoToUpdate);
+            pubsub.publish("listChanged", this.list);
         }
     }
 
