@@ -11,6 +11,7 @@ export default class TodoManager {
     subscribe = () => {
         pubsub.subscribe("inputValidated", this.addTodoToList);
         pubsub.subscribe("deleteTodo", this.deleteTodoFromList);
+        pubsub.subscribe("completeTodo", this.upDateTodoCompletion);
     }
 
     addTodoToList = (newTodoText) => {
