@@ -73,7 +73,7 @@ export default class UI {
         // clear the dom list initially 
         while (this.domList.firstChild) { this.domList.removeChild(this.domList.lastChild) }
         todoList.forEach(todo => {
-            this.domList.appendChild(this.createTodoElement(todo)); 21
+            this.domList.appendChild(this.createTodoElement(todo));
         });
         console.log(todoList);
     }
